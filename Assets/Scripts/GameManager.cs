@@ -39,5 +39,17 @@ public class GameManager : MonoBehaviour
     private void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 300, 30), $"Time: {survivalTime:F1}s");
+
+        if (isGameOver)
+        {
+            var style = new GUIStyle(GUI.skin.label)
+            {
+                fontSize = 64,
+                fontStyle = FontStyle.Bold,
+                alignment = TextAnchor.MiddleCenter
+            };
+            style.normal.textColor = Color.red;
+            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "GAME OVER", style);
+        }
     }
 }
